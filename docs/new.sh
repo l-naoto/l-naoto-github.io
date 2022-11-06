@@ -43,6 +43,7 @@ filename=$(echo "$url" | tr -d 'http.\:\/\/' | tr -d '\/' | sed 's/\//%2F/g')
 echo "URL: $url" 
 echo "File: $filename" 
 
+# Blog
 if [ "$b" = true ] ; then
 	mkdir -p ./blogs/
 	tmp=./blogs/$(date)tmp.txt
@@ -54,9 +55,13 @@ if [ "$b" = true ] ; then
 else
 	title="$now :: <a href=\"$url\">$url</a>"
 fi
+
+# This is some absolutely disgusting solution, but it works so...
 echo -e "<li>$title</li>\n$(cat links.txt)" > links.txt
 echo "<head><link href=\"./styles.css\" rel=\"stylesheet\"><base target=\"_parent\"></head>" > ./links.html
 cat ./links.txt >> ./links.html
+
+# Download
 if [ "$d" = true ] ; then
 	mkdir -p "$downdir/$filename/"
 	if [ "$p" = false ] ; then
