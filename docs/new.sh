@@ -54,7 +54,7 @@ if [ "$b" = true ] ; then
 else
 	title="$now :: <a href=\"$url\">$url</a>"
 fi
-sed -i '0 a\<li>'"$title"'</li>' ./links.txt
+echo -e "<li>$title</li>\n$(cat links.txt)" > links.txt
 echo "<head><link href=\"./styles.css\" rel=\"stylesheet\"><base target=\"_parent\"></head>" > ./links.html
 cat ./links.txt >> ./links.html
 if [ "$d" = true ] ; then
