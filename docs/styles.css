@@ -38,10 +38,6 @@ a:hover
 {
 	color: var( --link-hover-fg ) ;
 }
-ul
-{
-	padding-left: 0px ;
-}
 li
 {
 	list-style-type: square ;
@@ -130,4 +126,10 @@ iframe
 {
 	display: block ;
 	height: 32px ;
+}
+#contact
+{
+	position: fixed ;
+	bottom: 0 ;
+	margin-bottom: 64px ;
 }
